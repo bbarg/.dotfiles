@@ -12,7 +12,7 @@
  '(custom-enabled-themes nil)
  '(custom-safe-themes
    (quote
-    ("9478cc5ff9f7de4608dfadead68ae7151aaf1966caea1c31743e3ba898fa8609" "6ffef0161169e444b514a0f7f0cb7eac09d11c396cdc99bf85360a361c427886" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "e56f1b1c1daec5dbddc50abd00fcd00f6ce4079f4a7f66052cf16d96412a09a9" "f10137adcc66747ed67e14de1e08ba9e3fdd21ac6f006b2bc052cabd9392ce60" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
+    ("84d2f9eeb3f82d619ca4bfffe5f157282f4779732f48a5ac1484d94d5ff5b279" "9478cc5ff9f7de4608dfadead68ae7151aaf1966caea1c31743e3ba898fa8609" "6ffef0161169e444b514a0f7f0cb7eac09d11c396cdc99bf85360a361c427886" "8db4b03b9ae654d4a57804286eb3e332725c84d7cdab38463cb6b97d5762ad26" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" "e56f1b1c1daec5dbddc50abd00fcd00f6ce4079f4a7f66052cf16d96412a09a9" "f10137adcc66747ed67e14de1e08ba9e3fdd21ac6f006b2bc052cabd9392ce60" "6a37be365d1d95fad2f4d185e51928c789ef7a4ccf17e7ca13ad63a8bf5b922f" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
  '(custom-theme-load-path
    (quote
     ("/home/bbarg/.emacs.d/elpa/color-theme-solarized-20160219.924/" "/home/bbarg/.emacs.d/elpa/termbright-theme-20151030.1935/" "/home/bbarg/.emacs.d/elpa/smart-mode-line-20160506.747/" "/home/bbard/.emacs.d/themes/" custom-theme-directory t)) t)
@@ -38,18 +38,19 @@
  '(org-src-fontify-natively t)
  '(package-selected-packages
    (quote
-    (sml-mode fireplace company-irony company-irony-c-headers ggtags flycheck-rtags rtags browse-kill-ring cmake-mode magit yaml-mode tern-auto-complete termbright-theme sqlup-mode sql-indent smart-tab smart-mode-line simpleclip ruby-test-mode puppet-mode protobuf-mode php-mode markdown-mode lua-mode llvm-mode json-mode jinja2-mode highlight-chars go-mode git-blame format-sql flycheck-irony color-theme-zenburn color-theme-solarized clang-format buffer-move apt-utils ag)))
+    (smart-mode-line-powerline-theme sml-mode fireplace company-irony company-irony-c-headers ggtags flycheck-rtags rtags browse-kill-ring cmake-mode magit yaml-mode tern-auto-complete termbright-theme sqlup-mode sql-indent smart-tab smart-mode-line simpleclip ruby-test-mode puppet-mode protobuf-mode php-mode markdown-mode lua-mode llvm-mode json-mode jinja2-mode highlight-chars go-mode git-blame format-sql flycheck-irony color-theme-zenburn color-theme-solarized clang-format buffer-move apt-utils ag)))
  '(reb-re-syntax (quote string))
  '(send-mail-function (quote smtpmail-send-it))
  '(show-paren-mode t)
  '(smtpmail-smtp-server "smtp.gmail.com")
- '(smtpmail-smtp-service 25))
+ '(smtpmail-smtp-service 25)
+ '(visible-bell nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 1 :width normal :foundry "default" :family "default"))))
+ '(default ((t (:inherit nil :stipple nil :background "black" :foreground "white" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 140 :width normal :foundry "nil" :family "Inconsolata"))))
  '(bold ((t (:weight bold))))
  '(diff-added ((t (:inherit diff-changed :foreground "green"))))
  '(diff-changed-face ((t nil)) t)
@@ -107,29 +108,23 @@
 (recentf-mode 1)
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+(setq recentf-max-saved-items 50)
 (require 'smart-tab)
 (smart-tab-mode 1)
-(require 'browse-kill-ring)
-(browse-kill-ring-default-keybindings)
 (require 'mouse)
 (if (not window-system)
     (xterm-mouse-mode t))
 (defun track-mouse (e))
-(require 'fill-column-indicator)
 (require 'smart-mode-line)
 (sml/setup)
+(load-theme 'misterioso)
 
-;; disable backup
+;(require 'fill-column-indicator)
+;(require 'browse-kill-ring)
+;(browse-kill-ring-default-keybindings)
+
 (setq backup-inhibited t)
-
-;; disable auto save
 (setq auto-save-default nil)
-
-;; enable recent files mode.
-(recentf-mode t)
- 
-; 50 files ought to be enough.
-(setq recentf-max-saved-items 50)
  
 (defun ido-recentf-open ()
   "Use `ido-completing-read' to \\[find-file] a recent file"
@@ -137,6 +132,7 @@
   (if (find-file (ido-completing-read "Find recent file: " recentf-list))
       (message "Opening file...")
     (message "Aborting")))
+(global-set-key (kbd "C-x C-r") 'ido-recentf-open)
 
 ;; Commands
 (global-set-key (kbd "C-c C-e") 'eval-buffer)
@@ -173,7 +169,6 @@ directory."
   "Sets the transparency of the frame window. 0=transparent/100=opaque"
   (interactive "nTransparency Value 0 - 100 opaque:")
   (set-frame-parameter (selected-frame) 'alpha value))
-(transparency 90)
 
 ;; show parentheses
 (show-paren-mode 1)
@@ -188,14 +183,6 @@ directory."
 			     (char-equal (char-syntax cb) ?\) )
 			     (blink-matching-open))))
     (when matching-text (message matching-text))))
-
-(defun inside ()
-  (interactive)
-  (load-theme 'misterioso t))
-(defun outside ()
-  (interactive)
-  (load-theme 'wheatgrass t))
-(inside)
 
 (defun reformat-js-file ()
   (interactive)
@@ -317,7 +304,6 @@ directory."
 (blink-cursor-mode 0)
 (setq initial-scratch-message "")
 (setq inhibit-startup-message t)
-(setq visible-bell t)
 (setq inhibit-startup-echo-area-message "ben")
 (if window-system
     (scroll-bar-mode 0))

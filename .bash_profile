@@ -3,6 +3,7 @@ source ~/.bash/git_prompt.sh
 
 export PS1="[\[\e[36m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\] \[\e[33m\]\w\[\e[m\]]\[\e[35m\]\`parse_git_branch\`\[\e[m\] \[\e[1m\]\d\[\e[m\] \[\e[1m\]\t\[\e[m\]\n\$ "
 export TERM=xterm-256color
+alias emacs='emacs -nw'
 export EDITOR='emacs'
 export LANG=en_US.utf8
 
