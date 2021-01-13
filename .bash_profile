@@ -1,7 +1,4 @@
 # prompt
-source ~/.bash/git_prompt.sh
-
-export PS1="[\[\e[36m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\] \[\e[33m\]\w\[\e[m\]]\[\e[35m\]\`parse_git_branch\`\[\e[m\] \[\e[1m\]\d\[\e[m\] \[\e[1m\]\t\[\e[m\]\n\$ "
 export TERM=xterm-256color
 alias emacs='emacs -nw'
 export EDITOR='emacs'
@@ -76,3 +73,11 @@ function errno {
     ERRNO_H=/usr/include/asm-generic/errno-base.h
     grep -e `$@` $ERRNO_H
 }
+
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+export LDFLAGS="-L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+eval "$(pyenv virtualenv-init -)"
